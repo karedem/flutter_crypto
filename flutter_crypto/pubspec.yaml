@@ -1,5 +1,5 @@
 name: fluttercrypto
-description: A dart crypto library.
+description: A dart crypto library.  now only support des
 version: 0.0.1
 author:
 homepage:
