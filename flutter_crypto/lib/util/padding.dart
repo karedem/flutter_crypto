@@ -1,8 +1,7 @@
 class Padding {
   static List<int> pkcs7Padding(List<int> data) {
-    List<int> padDate = [];
     int fillLen = 8 - data.length % 8;
-    padDate.addAll(data);
+    List<int> padDate = data.toList();
     for (int i = 0; i < fillLen; i++) {
       padDate.add(fillLen);
     }

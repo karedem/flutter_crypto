@@ -24,24 +24,30 @@ void main() {
 
   test('des ecb test', () async {
     //
-
     String hexKey = '133457799BBCDFF1';
-    String hexPlain = '0123456789ABCDEF';
-    print(CryptoUtil.hex2List(hexPlain));
-    List<int> cipher = DES().encrypHexWithEcb(hexPlain, hexKey);
-    print('cipher ' + CryptoUtil.list2Hex(cipher));
-    List<int> plain = DES().decryptWithEcb(cipher, CryptoUtil.hex2List(hexKey));
+    String data = '0123456789ABCDEF';
+
+    String cipher = DES().encryptToHexWithECB(data, hexKey);
+    print('cipher $cipher');
+    String plain = DES().decryptFromHexWithECB(cipher, hexKey);
     print('plain ' + plain.toString());
+
+    ///多数在线加密网站的key使用的是utf-8格式 这里是十六进制格式
+    String testKey = 'asfd1234';
+    print('网站测试key: $testKey');
+    print('对应十六进制key: ${CryptoUtil.list2Hex(testKey.codeUnits)}');
+    print(
+        '对应 cipher: ${DES().encryptToHexWithECB(data, CryptoUtil.list2Hex(testKey.codeUnits))}');
   });
 
   test('des cbc test', () async {
     //
 
     String hexKey = '133457799BBCDFF1';
-    String hexPlain = 'asdasdasd啊啊啊';
-    String cipher = DES().encryptToHex(hexPlain, hexKey);
+    String data = 'asdasdasd啊啊啊';
+    String cipher = DES().encryptToHexWithCBC(data, hexKey);
     print('cipher ' + cipher);
-    String plain = DES().decryptFromHex(cipher, hexKey);
+    String plain = DES().decryptFromHexWithCBC(cipher, hexKey);
     print('plain ' + plain);
   });
 
