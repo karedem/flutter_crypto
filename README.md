@@ -1,5 +1,6 @@
 # flutter_crypto
 Encryption algorithm library implemented by pure dart
+纯dart 软算法实现 无调用Native代码
 
 当前支持DES   ECB CBC模式
 
