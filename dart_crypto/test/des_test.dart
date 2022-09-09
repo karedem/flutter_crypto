@@ -1,24 +1,17 @@
-// This is a basic Flutter widget test.
-//
-// To perform an interaction with a widget in your test, use the WidgetTester
-// utility that Flutter provides. For example, you can send tap and scroll
-// gestures. You can also use WidgetTester to find child widgets in the widget
-// tree, read text, and verify that the values of widget properties are correct.
-
-import 'package:flutter_test/flutter_test.dart';
-import 'package:fluttercrypto/des/des.dart';
-import 'package:fluttercrypto/util/crypto_util.dart';
-import 'package:fluttercrypto/util/number_utils.dart';
+/// 这是3DES测试包
+import 'package:dartcrypto/des/des.dart';
+import 'package:dartcrypto/util/crypto_util.dart';
+import 'package:dartcrypto/util/number_utils.dart';
+import 'package:test/test.dart';
 
 void main() {
   test('hex test', () {
-    List<int> list = CryptoUtil.hex2List('0123456789ABCDEF');
+    List<int> list = CryptoUtil.hex2List('0123456789ABCDEF')!;
     print(list.toString());
     list.forEach((i) {
       print(NumberUtils.to8Bit(i).toString());
       print(NumberUtils.intFromBits(NumberUtils.to8Bit(i)));
     });
-
     //print([1, 2, 3, 4, 5, 6].sublist(0, 4).toString());
   });
 
@@ -60,7 +53,8 @@ void main() {
   });
 
   test('e_transform test', () {
-    List<int> l1 = NumberUtils.bitsFromIntList(CryptoUtil.hex2List('10A10001'));
+    List<int> l1 =
+        NumberUtils.bitsFromIntList(CryptoUtil.hex2List('10A10001')!);
     print(l1);
     List<int> p = DES().E_transform(l1);
     print(p);
@@ -69,7 +63,8 @@ void main() {
   });
 
   test('p_transform test', () {
-    List<int> l1 = NumberUtils.bitsFromIntList(CryptoUtil.hex2List('10A10001'));
+    List<int> l1 =
+        NumberUtils.bitsFromIntList(CryptoUtil.hex2List('10A10001')!);
     print(l1);
     List<int> p = DES().P_transform(l1);
     print(p);

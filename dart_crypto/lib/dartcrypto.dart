@@ -1,4 +1,4 @@
-library fluttercrypto;
+library dartcrypto;
 
 /// A Calculator.
 class Calculator {

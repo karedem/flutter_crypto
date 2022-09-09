@@ -1,0 +1,12 @@
+name: dartcrypto
+description: A dart crypto library.  now only support des/3des
+version: 0.0.2
+homepage:
+
+environment:
+  sdk: ">=2.18.0"
+
+dependencies:
+  test:
+
+dev_dependencies:
